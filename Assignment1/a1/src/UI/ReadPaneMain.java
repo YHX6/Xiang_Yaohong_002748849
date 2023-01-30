@@ -44,7 +44,7 @@ public class ReadPaneMain extends javax.swing.JPanel {
         this.main = main;
     }
     
-       public boolean validateChefName(){
+    public boolean validateChefName(){
         String str = fieldChefName.getText();
 
         
@@ -56,11 +56,11 @@ public class ReadPaneMain extends javax.swing.JPanel {
     }
     
     public boolean validateRecipeName(){
-        String str = fieldChefName.getText();
+        String str = fieldRecipeName.getText();
 
         
         if(!str.matches("[A-Za-z]*")){
-            JOptionPane.showMessageDialog(this, "Please enter validate name!");
+            JOptionPane.showMessageDialog(this, "Please enter validate Recipe name!");
             return false;
         }
         return true;
@@ -81,13 +81,14 @@ public class ReadPaneMain extends javax.swing.JPanel {
         for(Person p:pc.getCatelog()){
             
             if(!chiefName.isEmpty() && !p.matchName(chiefName)){  // to match the name or skill if no name required
-                continue;
+                continue;     
             }
             
             for(Recipe recipe:p.getRecipes()){
                 if(!recipeName.isEmpty() && !recipeName.equals(recipe.getTitle())){  // to match the name or skill if no name required
                     continue;
                 }
+//                System.out.println(recipe.getTitle() + " " + chiefName);
                 tableInformation.put(index, recipe);
                 // name
                 data[index][0] = p.getFirstName() + " " + p.getLastName();
@@ -281,11 +282,15 @@ public class ReadPaneMain extends javax.swing.JPanel {
 
     private void showTableInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTableInfoActionPerformed
         // TODO add your handling code here:
-                String chefName = fieldChefName.getText();
+        String chefName = fieldChefName.getText();
         if(!chefName.trim().isEmpty() && !validateChefName()) return;
+        
+        System.out.println(chefName);
             
-        String recipeName = fieldChefName.getText();
+        String recipeName = fieldRecipeName.getText();
         if(!recipeName.trim().isEmpty() && !validateRecipeName()) return ;
+        
+        System.out.println(recipeName);
         
 
         loadTable(chefName, recipeName);
