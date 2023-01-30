@@ -1,45 +1,50 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package UI;
-
-import java.util.*;
 import Model.*;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.io.File;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.*;
-
 /**
  *
  * @author xyh10
  */
-public class ReadFrame extends javax.swing.JFrame {
-    PersonCatelog pc;
-    DefaultTableModel model;
-    Object[][] data = new Object[25][9];
-    String[] tableTitle = new String [] {
+public class ReadPaneMain extends javax.swing.JPanel {
+    // table contents
+    private DefaultTableModel model;
+    private Object[][] data = new Object[25][9];
+    private String[] tableTitle = new String [] {
                 "Name", "Email ID", "Phone", "Recipe title", "No. of servings", "Is gluten free", "Difficulty level", "No. of Ingredients", "Category"
         };
     
-    HashMap<Integer, Recipe> tableInformation = new HashMap<>();
+    private HashMap<Integer, Recipe> tableInformation = new HashMap<>();
+    private PersonCatelog pc;
+    private Main main;
+    
     
     /**
-     * Creates new form ReadFrame
+     * Creates new form ReadPaneMain
      */
-    public ReadFrame() {
+    public ReadPaneMain() {
         initComponents();
+        pc = new PersonCatelog();
+        
         model = new DefaultTableModel(data, tableTitle);
         Table.setModel(model);
-        
     }
     
-    public boolean validateChefName(){
+    public ReadPaneMain(PersonCatelog pc, Main main){
+        initComponents();
+        this.pc = pc;
+        model = new DefaultTableModel(data, tableTitle);
+        Table.setModel(model);
+        this.main = main;
+    }
+    
+       public boolean validateChefName(){
         String str = fieldChefName.getText();
 
         
@@ -51,7 +56,7 @@ public class ReadFrame extends javax.swing.JFrame {
     }
     
     public boolean validateRecipeName(){
-        String str = fieldRecipeName.getText();
+        String str = fieldChefName.getText();
 
         
         if(!str.matches("[A-Za-z]*")){
@@ -124,17 +129,18 @@ public class ReadFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
-        showTable = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        fieldChefName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        fieldRecipeName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        fieldChefName = new javax.swing.JTextField();
+        fieldRecipeName = new javax.swing.JTextField();
+        showTableInfo = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1100, 300));
 
         Table.setBackground(new java.awt.Color(255, 255, 255));
         Table.setModel(new javax.swing.table.DefaultTableModel(
@@ -184,10 +190,6 @@ public class ReadFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        Table.setGridColor(new java.awt.Color(0, 0, 0));
-        Table.setOpaque(false);
-        Table.setShowHorizontalLines(true);
-        Table.setShowVerticalLines(true);
         Table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TableMouseClicked(evt);
@@ -195,93 +197,78 @@ public class ReadFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table);
 
-        showTable.setText("Search");
-        showTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showTableActionPerformed(evt);
-            }
-        });
-
+        jLabel1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Search by chef's name:");
-
-        fieldChefName.setBackground(new java.awt.Color(255, 255, 255));
-        fieldChefName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldChefNameActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Recipe information is listed bellow!");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Search by recipe name:");
+        jLabel2.setText("Search by chef's name");
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Search by recipe title");
+
+        fieldChefName.setBackground(new java.awt.Color(255, 255, 255));
 
         fieldRecipeName.setBackground(new java.awt.Color(255, 255, 255));
-        fieldRecipeName.addActionListener(new java.awt.event.ActionListener() {
+
+        showTableInfo.setText("Search");
+        showTableInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldRecipeNameActionPerformed(evt);
+                showTableInfoActionPerformed(evt);
             }
         });
-
-        jLabel3.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Read recipe information list!");
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei UI", 2, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Click the table record to see detail information!");
+        jLabel4.setText("Click table to see detailed information!");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(15, 15, 15)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(fieldRecipeName, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                                    .addComponent(fieldChefName))
-                                .addGap(79, 79, 79)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(showTable)
-                                    .addComponent(jLabel4)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 873, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fieldChefName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldRecipeName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(159, 159, 159)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(showTableInfo)
+                            .addComponent(jLabel4))))
+                .addContainerGap(297, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(fieldChefName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showTable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
+                    .addComponent(fieldChefName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(showTableInfo))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
                     .addComponent(fieldRecipeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(38, 38, 38))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -290,85 +277,37 @@ public class ReadFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void showTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTableActionPerformed
+    private void showTableInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTableInfoActionPerformed
         // TODO add your handling code here:
-        String chefName = fieldChefName.getText();
+                String chefName = fieldChefName.getText();
         if(!chefName.trim().isEmpty() && !validateChefName()) return;
             
-        String recipeName = fieldRecipeName.getText();
+        String recipeName = fieldChefName.getText();
         if(!recipeName.trim().isEmpty() && !validateRecipeName()) return ;
         
 
         loadTable(chefName, recipeName);
         Table.setModel(new DefaultTableModel(data, tableTitle));
-    }//GEN-LAST:event_showTableActionPerformed
-
-    private void fieldChefNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldChefNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldChefNameActionPerformed
+    }//GEN-LAST:event_showTableInfoActionPerformed
 
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+     
+        // find the row be clicked
         int row = Table.getSelectedRow();
-//        System.out.println(row);
         
-        Recipe recipe = null;
-        if(tableInformation.containsKey(row)) recipe = tableInformation.get(row);
-      
-        
-        ReadDetailsFrame rdf = new ReadDetailsFrame();
-        rdf.setVisible(true);
-        rdf.initialize(recipe);
+        // if click an empty row, return 
+        if(!tableInformation.containsKey(row)) return ; 
+            
+        // find the recipe and go to detail info page
+        Recipe recipe = tableInformation.get(row);
+        main.goDetailedReadPane(recipe);
         
         
     }//GEN-LAST:event_TableMouseClicked
 
-    private void fieldRecipeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldRecipeNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldRecipeNameActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReadFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ReadFrame().setVisible(true);
-            }
-        });
-    }
-    
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
@@ -380,6 +319,6 @@ public class ReadFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton showTable;
+    private javax.swing.JButton showTableInfo;
     // End of variables declaration//GEN-END:variables
 }
