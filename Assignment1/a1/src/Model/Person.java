@@ -151,7 +151,7 @@ public class Person {
     
     public static boolean validatePhone(String str){
         //9 digit phone number
-        return str.matches("[0-9]*") && str.length() == 9;
+        return str.matches("[0-9]*") && str.length() == 10;
     }
 
 }

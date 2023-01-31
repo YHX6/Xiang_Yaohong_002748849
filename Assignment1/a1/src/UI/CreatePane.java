@@ -552,7 +552,7 @@ public class CreatePane extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please enter your Phone!");
             return false;
         }else if(!Person.validatePhone(str)){
-            JOptionPane.showMessageDialog(this, "Please enter valid 9 digit phone number!");  
+            JOptionPane.showMessageDialog(this, "Please enter valid 10 digit phone number!");  
             return false;
         }
         

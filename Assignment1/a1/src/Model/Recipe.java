@@ -161,7 +161,7 @@ public class Recipe {
     
     public static boolean validateNoOfServings(String str){
         //contains only digits
-        return str.matches("[0-9]*");
+        return str.matches("[0-9]*") && Long.parseLong(str) > 0;
     }
     
     public static boolean validateCategoryOfFood(String str){

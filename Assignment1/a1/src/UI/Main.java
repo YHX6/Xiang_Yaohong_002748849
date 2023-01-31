@@ -39,10 +39,14 @@ public class Main extends javax.swing.JFrame {
     public void display(){
 //        ImageIcon ii = new ImageIcon("C:\\Users\\xyh10\\Pictures\\Saved Pictures\\1675052683767.jpg").getImage().getScaledInstance(800, 600,Image.SCALE_SMOOTH);
 //        ImageArea.setIcon(ii);
-        Image image = new ImageIcon("C:\\Users\\xyh10\\Pictures\\Saved Pictures\\1675052683767.jpg").getImage().getScaledInstance(ImageArea.getWidth(), ImageArea.getHeight(),Image.SCALE_SMOOTH );
+//        Image image = new ImageIcon("C:\\Users\\xyh10\\Pictures\\Saved Pictures\\1675052683767.jpg").getImage().getScaledInstance(ImageArea.getWidth(), ImageArea.getHeight(),Image.SCALE_SMOOTH );
 //        Image image = new ImageIcon("C:\\Users\\xyh10\\Pictures\\Saved Pictures\\spongebob.png").getImage().getScaledInstance(ImageArea.getWidth(), ImageArea.getHeight(),Image.SCALE_SMOOTH );
-        ImageIcon  imageIcon = new ImageIcon(image) ;
-        ImageArea.setIcon(imageIcon);
+//        ImageIcon  imageIcon = new ImageIcon(image) ;
+//        ImageArea.setIcon(imageIcon);
+        
+        
+        jSplitPane1.setRightComponent(new BackgroudPane());
+
     }
     
     /**
@@ -165,7 +169,7 @@ public class Main extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 153, 255));
         jPanel2.setMinimumSize(new java.awt.Dimension(800, 600));
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -173,11 +177,17 @@ public class Main extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ImageArea, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(ImageArea, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(299, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ImageArea, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addComponent(ImageArea, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
 
         jSplitPane1.setRightComponent(jPanel2);

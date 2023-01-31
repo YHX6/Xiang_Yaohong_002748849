@@ -69,7 +69,7 @@ public class PersonCatelog {
             recipe.setNoOfServings(1500);
             recipe.setIsGlutenFree(true);
             recipe.setDifficultyLevel(2.5);
-            recipe.setNoOfIngredient(i);
+            recipe.setNoOfIngredient(i + 1);
             recipe.setCategory("drinks");
             recipe.setDescription("This is an test sample!");
             
