@@ -353,6 +353,10 @@ public class UpdatePane extends javax.swing.JPanel {
         
         if(fileDialog == JFileChooser.APPROVE_OPTION){
             File imageFile = jf.getSelectedFile();
+            if(imageFile == null){
+                JOptionPane.showMessageDialog(null, "please choose an image");
+                return ;
+            }
             String imagePath = imageFile.getAbsolutePath();
             
             ImageIcon ii = new ImageIcon(imagePath);
