@@ -40,6 +40,7 @@ public class ReadDetailedInfo extends javax.swing.JPanel {
         fieldNoOfServings.setText("" + recipe.getNoOfServings());
         isGlutenFree.setSelected(recipe.isIsGlutenFree());
         fieldDifficultyLevel.setText("" + recipe.getDifficultyLevel());
+        fieldNoOfIngredients.setText(recipe.getNoOfIngredient() + "");
         fieldCategoryOfFood.setText(recipe.getCategory());
         
         
@@ -59,6 +60,7 @@ public class ReadDetailedInfo extends javax.swing.JPanel {
         fieldNoOfServings.setEditable(false);
         fieldDifficultyLevel.setEditable(false);
         fieldCategoryOfFood.setEditable(false);
+        fieldNoOfIngredients.setEditable(false);
         
         fieldDescription.setEditable(false);
         
