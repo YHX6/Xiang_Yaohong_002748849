@@ -110,6 +110,7 @@ public class ReadDetailedInfo extends javax.swing.JPanel {
 
         Picture.setBackground(new java.awt.Color(153, 255, 153));
         Picture.setForeground(new java.awt.Color(0, 0, 0));
+        Picture.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -117,41 +118,53 @@ public class ReadDetailedInfo extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        Picture.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(703, 532, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Detail Information");
+        Picture.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 60, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("UserName");
+        Picture.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 107, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("FirstName");
+        Picture.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 152, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("LastName");
+        Picture.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 194, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Recipe Information");
+        Picture.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 225, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Recipe title");
+        Picture.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 265, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("No. of Servings");
+        Picture.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 308, -1, -1));
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Is gluten free");
+        Picture.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 353, -1, -1));
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Difficulty level");
+        Picture.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 409, -1, -1));
 
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("No. of ingredients");
+        Picture.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 458, -1, -1));
 
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Category of food");
+        Picture.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 524, -1, -1));
 
         fieldUserName.setBackground(new java.awt.Color(255, 255, 255));
         fieldUserName.addActionListener(new java.awt.event.ActionListener() {
@@ -159,173 +172,65 @@ public class ReadDetailedInfo extends javax.swing.JPanel {
                 fieldUserNameActionPerformed(evt);
             }
         });
+        Picture.add(fieldUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 104, 110, -1));
 
         fieldFirstName.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 149, 110, -1));
 
         fieldLastName.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 191, 110, -1));
 
         fieldRecipeTitle.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldRecipeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 262, 110, -1));
 
         fieldNoOfServings.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldNoOfServings, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 305, 110, -1));
 
         fieldDifficultyLevel.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldDifficultyLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 406, 110, -1));
 
         fieldNoOfIngredients.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldNoOfIngredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 455, 110, -1));
 
         fieldCategoryOfFood.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldCategoryOfFood, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 521, 110, -1));
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Email ID");
+        Picture.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 107, -1, -1));
 
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Phone");
+        Picture.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 152, -1, -1));
 
         fieldEmailID.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldEmailID, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 104, 149, -1));
 
         fieldPhone.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.add(fieldPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 149, 149, -1));
 
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Picture");
+        Picture.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 256, -1, -1));
 
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Description");
+        Picture.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 441, -1, -1));
 
         imageField.setBackground(new java.awt.Color(204, 204, 204));
         imageField.setOpaque(true);
+        Picture.add(imageField, new org.netbeans.lib.awtextra.AbsoluteConstraints(469, 279, 200, 150));
 
         fieldDescription.setBackground(new java.awt.Color(255, 255, 255));
         fieldDescription.setColumns(20);
         fieldDescription.setRows(5);
         jScrollPane1.setViewportView(fieldDescription);
 
+        Picture.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 464, -1, -1));
+
         isGlutenFree.setForeground(new java.awt.Color(0, 0, 0));
         isGlutenFree.setText("yes");
-
-        javax.swing.GroupLayout PictureLayout = new javax.swing.GroupLayout(Picture);
-        Picture.setLayout(PictureLayout);
-        PictureLayout.setHorizontalGroup(
-            PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PictureLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PictureLayout.createSequentialGroup()
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(34, 34, 34)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(fieldUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(fieldDifficultyLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldNoOfServings, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldRecipeTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldNoOfIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldCategoryOfFood, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(isGlutenFree))
-                        .addGap(95, 95, 95)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(imageField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(PictureLayout.createSequentialGroup()
-                                    .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PictureLayout.createSequentialGroup()
-                                            .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel13)
-                                                .addComponent(jLabel12)
-                                                .addComponent(jLabel14))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(fieldEmailID, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                                .addComponent(fieldPhone)))
-                                        .addComponent(jLabel15))
-                                    .addGap(63, 63, 63)))
-                            .addGroup(PictureLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(25, 25, 25))
-                    .addGroup(PictureLayout.createSequentialGroup()
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        PictureLayout.setVerticalGroup(
-            PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PictureLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PictureLayout.createSequentialGroup()
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(fieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(19, 19, 19)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(fieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(fieldRecipeTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(fieldNoOfServings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(isGlutenFree))
-                        .addGap(34, 34, 34)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(fieldDifficultyLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(fieldNoOfIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(fieldCategoryOfFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56))
-                    .addGroup(PictureLayout.createSequentialGroup()
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(fieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(fieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(imageField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        Picture.add(isGlutenFree, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 351, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
