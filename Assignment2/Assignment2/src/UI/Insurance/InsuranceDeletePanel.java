@@ -23,6 +23,7 @@ public class InsuranceDeletePanel extends javax.swing.JPanel {
     public InsuranceDeletePanel(Business business) {
         initComponents();
         this.business = business;
+        displayCombox();
     }
     
     public void displayCombox(){

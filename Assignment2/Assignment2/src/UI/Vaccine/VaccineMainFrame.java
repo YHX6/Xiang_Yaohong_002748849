@@ -40,6 +40,7 @@ public class VaccineMainFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -69,6 +70,8 @@ public class VaccineMainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Delete Vaccination");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -76,11 +79,13 @@ public class VaccineMainFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(backBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                .addGap(141, 141, 141)
                 .addComponent(jButton1)
-                .addGap(53, 53, 53)
+                .addGap(39, 39, 39)
                 .addComponent(jButton2)
-                .addGap(55, 55, 55))
+                .addGap(34, 34, 34)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +94,8 @@ public class VaccineMainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(backBtn))
+                    .addComponent(backBtn)
+                    .addComponent(jButton3))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -165,6 +171,7 @@ public class VaccineMainFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
