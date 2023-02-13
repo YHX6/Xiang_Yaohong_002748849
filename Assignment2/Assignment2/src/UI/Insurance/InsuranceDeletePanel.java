@@ -3,48 +3,44 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package UI.Insurance;
-
 import Model.*;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author xyh10
  */
-public class InsuranceUpdatePanel extends javax.swing.JPanel {
+public class InsuranceDeletePanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form InsuranceUpdatePanel
+     * Creates new form InsuranceDeletePanel
      */
     Business business;
     Insurance selectedInsurance;
-    public InsuranceUpdatePanel() {
+    public InsuranceDeletePanel() {
         initComponents();
-        display();
     }
-    
         
-    public InsuranceUpdatePanel(Business business) {
+    public InsuranceDeletePanel(Business business) {
         initComponents();
         this.business = business;
-        display();
     }
     
-    public void display(){
-        for(int i=jComboBox1.getItemCount()-1;i>0;i--){
+    public void displayCombox(){
+        for(int i=jComboBox1.getItemCount() - 1; i>0; i--){
             jComboBox1.removeItemAt(i);
         }
         
-        for(Insurance ins:business.getInsuranceDirectory().getInsuranceCatalog()){
-            jComboBox1.addItem(ins);
+        for(Insurance i:business.getInsuranceDirectory().getInsuranceCatalog()){
+            jComboBox1.addItem(i);
         }
     }
-        
+    
     public void clean(){
         fieldPlanID.setText("");
         fieldPlanName.setText("");
         fieldCostMonth.setText("");
         fieldCostAnnum.setText("");
+        displayCombox();
     }
 
     /**
@@ -56,64 +52,33 @@ public class InsuranceUpdatePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
         fieldPlanID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         fieldPlanName = new javax.swing.JTextField();
         fieldCostMonth = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         fieldCostAnnum = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 153));
+        setBackground(new java.awt.Color(153, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Cost per Cost");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        jLabel12.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Delete Insurance Plan");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Plan Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
-
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Plan ID");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
-
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Cost per Annum");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
-
-        fieldPlanID.setEnabled(false);
-        add(fieldPlanID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 110, -1));
-        add(fieldPlanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 110, -1));
-
-        fieldCostMonth.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldCostMonthFocusLost(evt);
-            }
-        });
-        add(fieldCostMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 110, -1));
-
-        fieldCostAnnum.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldCostAnnumFocusLost(evt);
-            }
-        });
-        add(fieldCostAnnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 110, -1));
-
-        jButton1.setText("Update");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Choose the Insurance Plan");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- choose one --" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -123,62 +88,70 @@ public class InsuranceUpdatePanel extends javax.swing.JPanel {
         });
         add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 210, -1));
 
-        jLabel5.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Choose the Insurance Plan");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        fieldPlanID.setEnabled(false);
+        add(fieldPlanID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 110, -1));
 
-        jLabel12.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Update Insurance Plan");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Plan ID");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Plan Name");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+
+        fieldPlanName.setEnabled(false);
+        add(fieldPlanName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 110, -1));
+
+        fieldCostMonth.setEnabled(false);
+        fieldCostMonth.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldCostMonthFocusLost(evt);
+            }
+        });
+        add(fieldCostMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 110, -1));
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Cost per Cost");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Cost per Annum");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
+
+        fieldCostAnnum.setEnabled(false);
+        fieldCostAnnum.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldCostAnnumFocusLost(evt);
+            }
+        });
+        add(fieldCostAnnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 110, -1));
+
+        jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        
-        if(jComboBox1.getSelectedIndex() == 0) return ;
-        
+
+        if(jComboBox1.getSelectedIndex() == 0) {
+            selectedInsurance  = null;
+            return ;
+        }
+
         Insurance ins = (Insurance) jComboBox1.getSelectedItem();
         fieldPlanID.setText(ins.getPlanID() + "");
         fieldPlanName.setText(ins.getPlanName());
         fieldCostMonth.setText("" + ins.getCostPerMonth());
         fieldCostAnnum.setText("" + ins.getCostPerAnnum());
-        
-        selectedInsurance = ins;
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if(selectedInsurance == null){
-            JOptionPane.showMessageDialog(null, "Choose a plan");
-            return ;
-        }
-        
-        
-        if(fieldPlanName.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Enter Plan Name");
-            return ;
-        }
-        
-        if(fieldCostMonth.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Enter cost");
-            return ;
-        }
-        
-        
-        selectedInsurance.setPlanName(fieldPlanName.getText());
-        selectedInsurance.setCostPerMonth(Double.parseDouble(fieldCostMonth.getText()));
-        
-        display();
-        clean();
-        JOptionPane.showMessageDialog(null, "Updated!");
-        
-        // clean
-        selectedInsurance = null;
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        selectedInsurance = ins;
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void fieldCostMonthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCostMonthFocusLost
         // TODO add your handling code here:
@@ -186,7 +159,7 @@ public class InsuranceUpdatePanel extends javax.swing.JPanel {
         if(str.isEmpty()){
             JOptionPane.showMessageDialog(null, "Enter cost");
             return;
-            
+
         }else if(!str.matches("(-?)(0|([1-9][0-9]*))(\\\\.[0-9]+)?$")){
             JOptionPane.showMessageDialog(null, "Invalid value!");
             return;
@@ -202,7 +175,7 @@ public class InsuranceUpdatePanel extends javax.swing.JPanel {
         if(str.isEmpty()){
             JOptionPane.showMessageDialog(null, "Enter cost");
             return;
-            
+
         }else if(!str.matches("(-?)(0|([1-9][0-9]*))(\\\\.[0-9]+)?$")){
             JOptionPane.showMessageDialog(null, "Invalid value!");
             return;
@@ -211,6 +184,16 @@ public class InsuranceUpdatePanel extends javax.swing.JPanel {
             fieldCostMonth.setText("" + costA/12);
         }
     }//GEN-LAST:event_fieldCostAnnumFocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        business.getInsuranceDirectory().getInsuranceCatalog().remove(selectedInsurance);
+        selectedInsurance = null;
+        clean();
+        
+        JOptionPane.showMessageDialog(null, "Deleted!");
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
