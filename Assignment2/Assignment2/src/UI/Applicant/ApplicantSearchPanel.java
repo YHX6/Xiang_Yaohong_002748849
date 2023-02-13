@@ -1,0 +1,284 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package UI.Applicant;
+
+import Model.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.util.*;
+
+/**
+ *
+ * @author xyh10
+ */
+public class ApplicantSearchPanel extends javax.swing.JPanel {
+
+    /**
+     * Creates new form ApplicantSearchPanel
+     */
+    Business business;
+    DefaultTableModel tableModel;
+    ApplicantMainFrame menu;
+    List<Object[]> rows = new ArrayList<>(); 
+    
+    public ApplicantSearchPanel() {
+        initComponents();
+    }
+    
+    public ApplicantSearchPanel(Business business, ApplicantMainFrame menu){
+        initComponents();
+        this.business = business;
+        tableModel = (DefaultTableModel) table.getModel();
+        this.menu = menu;
+    }
+    
+    public ApplicantSearchPanel(Business business, ApplicantMainFrame menu, List<Object[]> rows){
+        initComponents();
+        this.business = business;
+        this.tableModel = (DefaultTableModel) table.getModel();
+        this.menu = menu;
+        
+        for(Object[] row:rows){
+            tableModel.addRow(row);
+        }
+        this.rows = rows;
+        
+    }
+    
+    
+    
+    public void displayAll(){
+        tableModel.setRowCount(0);
+        rows = new ArrayList<>();
+        
+        for(Applicant a:business.getApplicantsDirectory().getApplicantCatalog()){
+            Object[] row = new Object[9];
+            
+            row[0] = a;
+            row[1] = a.getName();
+            row[2] = a.getApplicationDate();
+            row[3] = a.getPet().getName();
+            row[4] = a.getPet().getAge();
+            row[5] = a.getPet().isGender() ? "Male" :"Female";
+            row[6] = a.getPet().getType();
+            row[7] = a.getPet().getBreed();
+            row[8] = a.getPet().getInsurancePlan() == null ? "":a.getPet().getInsurancePlan().getPlanName();
+            
+            tableModel.addRow(row);
+            rows.add(row);
+        }
+    }
+        
+    public void displayByID(int id){
+        tableModel.setRowCount(0);
+        rows = new ArrayList<>();
+        
+        for(Applicant a:business.getApplicantsDirectory().getApplicantCatalog()){
+            if(a.getApplicationID() != id) continue;
+            
+            Object[] row = new Object[9];
+            
+            row[0] = a;
+            row[1] = a.getName();
+            row[2] = a.getApplicationDate();
+            row[3] = a.getPet().getName();
+            row[4] = a.getPet().getAge();
+            row[5] = a.getPet().isGender() ? "Male" :"Female";
+            row[6] = a.getPet().getType();
+            row[7] = a.getPet().getBreed();
+            row[8] = a.getPet().getInsurancePlan() == null ? "":a.getPet().getInsurancePlan().getPlanName();
+            
+            tableModel.addRow(row);
+            rows.add(row);
+        }
+    }
+        
+    public void displayByName(String name){
+        tableModel.setRowCount(0);
+        rows = new ArrayList<>();
+        
+        for(Applicant a:business.getApplicantsDirectory().getApplicantCatalog()){
+            if(!a.getName().equals(name)) continue;
+            
+            Object[] row = new Object[9];
+            
+            row[0] = a;
+            row[1] = a.getName();
+            row[2] = a.getApplicationDate();
+            row[3] = a.getPet().getName();
+            row[4] = a.getPet().getAge();
+            row[5] = a.getPet().isGender() ? "Male" :"Female";
+            row[6] = a.getPet().getType();
+            row[7] = a.getPet().getBreed();
+            row[8] = a.getPet().getInsurancePlan() == null ? "":a.getPet().getInsurancePlan().getPlanName();
+            
+            tableModel.addRow(row);
+            rows.add(row);
+        }
+    }
+        
+    public void displayByBoth(int id, String name){
+        tableModel.setRowCount(0);
+        rows = new ArrayList<>();
+        
+        for(Applicant a:business.getApplicantsDirectory().getApplicantCatalog()){
+            if(a.getApplicationID() != id || !a.getName().equals(name)) continue;
+            
+            Object[] row = new Object[9];
+            
+            row[0] = a;
+            row[1] = a.getName();
+            row[2] = a.getApplicationDate();
+            row[3] = a.getPet().getName();
+            row[4] = a.getPet().getAge();
+            row[5] = a.getPet().isGender() ? "Male" :"Female";
+            row[6] = a.getPet().getType();
+            row[7] = a.getPet().getBreed();
+            row[8] = a.getPet().getInsurancePlan() == null ? "":a.getPet().getInsurancePlan().getPlanName();
+            
+            tableModel.addRow(row);
+            rows.add(row);
+        }
+    }
+    
+    
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        fieldApplicationID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        fieldApplicantName = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        viewDetailsBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(204, 204, 255));
+        setMinimumSize(new java.awt.Dimension(900, 500));
+        setPreferredSize(new java.awt.Dimension(900, 500));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, -1));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Search by applicant ID");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 66, -1, -1));
+        add(fieldApplicationID, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 63, 130, -1));
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Search by applicant name");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        add(fieldApplicantName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 130, -1));
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Application ID", "Name", "Date", "Pet Name", "Age", "Gender", "Type", "Breed", "Insurance Plan"
+            }
+        ));
+        jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 860, 343));
+
+        jLabel12.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Search/Delete Application & Pet Information");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        viewDetailsBtn.setText("View Details");
+        viewDetailsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewDetailsBtnActionPerformed(evt);
+            }
+        });
+        add(viewDetailsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, -1, -1));
+
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, -1, -1));
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if(fieldApplicationID.getText().isEmpty() && fieldApplicantName.getText().isEmpty()){
+            displayAll();
+        }else if(fieldApplicationID.getText().isEmpty()){
+            displayByName(fieldApplicantName.getText());
+        }else{
+            displayByID(Integer.parseInt(fieldApplicationID.getText()));
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void viewDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailsBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = table.getSelectedRow();
+        if(selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Select an row!");
+            return ;
+        }
+        
+        Applicant a = (Applicant) table.getValueAt(selectedRow, 0);
+        menu.setRightPane(new PetDetailsSearchPanel(business, rows, menu, a));
+        
+        
+        
+    }//GEN-LAST:event_viewDetailsBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = table.getSelectedRow();
+        Applicant a = (Applicant) tableModel.getValueAt(selectedRow, 0);
+        business.getApplicantsDirectory().getApplicantCatalog().remove(a);
+        
+        
+        rows.remove(selectedRow);
+        tableModel.setRowCount(0);
+        for(Object[] row:rows){
+            tableModel.addRow(row);
+        }
+            
+            
+            
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JTextField fieldApplicantName;
+    private javax.swing.JTextField fieldApplicationID;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table;
+    private javax.swing.JButton viewDetailsBtn;
+    // End of variables declaration//GEN-END:variables
+}
