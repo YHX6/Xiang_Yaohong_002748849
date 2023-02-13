@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package UI.Vaccine;
+import Model.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +15,45 @@ public class DeleteVaccinePanel extends javax.swing.JPanel {
     /**
      * Creates new form DeleteVaccinePanel
      */
+    Business business;
+    Applicant selectedApplicant;
+    Vaccination selectedVaccination;
     public DeleteVaccinePanel() {
         initComponents();
+    }
+    
+        
+    public DeleteVaccinePanel(Business business) {
+        initComponents();
+        this.business = business;
+        displayApplicant();
+    }
+        
+    public void displayApplicant(){
+//        for(int i=comboxApplicant.getItemCount() -1; i>0; i--){
+//            comboxApplicant.removeItemAt(i);
+//        }
+        
+        for(Applicant a:business.getApplicantsDirectory().getApplicantCatalog()){
+            comboxApplicant.addItem(a);
+        }
+    }
+    
+    public void displayVaccination(){
+        for(int i=comboxVaccination.getItemCount() -1; i>0; i--){
+            comboxVaccination.removeItemAt(i);
+        }
+        
+        for(Vaccination v:selectedApplicant.getPet().getVaccinationHistory()){
+            comboxVaccination.addItem(v);
+        }
+    }
+    
+    public void clean(){
+        fieldVaccinationName.setText("");
+        fieldCourseCompleted.setSelected(false);
+                
+
     }
 
     /**
@@ -43,7 +82,7 @@ public class DeleteVaccinePanel extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Update Vaccination Details");
+        jLabel12.setText("Delete Vaccination Details");
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Choose Applicant");
@@ -77,8 +116,11 @@ public class DeleteVaccinePanel extends javax.swing.JPanel {
 
         fieldCourseCompleted.setForeground(new java.awt.Color(0, 0, 0));
         fieldCourseCompleted.setText("yes");
+        fieldCourseCompleted.setEnabled(false);
 
-        jButton2.setText("Update");
+        fieldVaccinationName.setEditable(false);
+
+        jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -89,7 +131,10 @@ public class DeleteVaccinePanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(627, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(101, 101, 101))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -117,14 +162,15 @@ public class DeleteVaccinePanel extends javax.swing.JPanel {
                             .addGap(20, 20, 20)
                             .addComponent(jLabel5)
                             .addGap(41, 41, 41)
-                            .addComponent(fieldCourseCompleted)
-                            .addGap(338, 338, 338)
-                            .addComponent(jButton2)))
+                            .addComponent(fieldCourseCompleted)))
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(402, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(75, 75, 75))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -144,9 +190,8 @@ public class DeleteVaccinePanel extends javax.swing.JPanel {
                     .addGap(67, 67, 67)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel5)
-                        .addComponent(fieldCourseCompleted)
-                        .addComponent(jButton2))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(fieldCourseCompleted))
+                    .addGap(0, 75, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -185,25 +230,18 @@ public class DeleteVaccinePanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Select a vaccination plan!");
             return ;
         }
-
-        if(fieldVaccinationName.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Enter the vaccination name!");
-            return ;
-        }
-
-        selectedVaccination.setName(fieldVaccinationName.getText());
-        selectedVaccination.setCourseCompleted(fieldCourseCompleted.isSelected());
+        
+        selectedApplicant.getPet().getVaccinationHistory().remove(selectedVaccination);
+        selectedApplicant = null;
+        selectedVaccination = null;
 
         clean();
-
+                
         for(int i=comboxVaccination.getItemCount() -1; i>0; i--){
             comboxVaccination.removeItemAt(i);
         }
 
-        //        for(int i=comboxApplicant.getItemCount() -1; i>0; i--){
-            //            comboxApplicant.removeItemAt(i);
-            //        }
-        JOptionPane.showMessageDialog(null, "Updated!");
+        JOptionPane.showMessageDialog(null, "Deleted!");
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
