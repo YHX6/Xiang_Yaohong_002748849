@@ -41,7 +41,10 @@ public class PetDetailsSearchPanel extends javax.swing.JPanel {
     public void display(){
         fieldFirstName.setText(applicant.getFirstName());
         fieldLastName.setText(applicant.getLastName());
-        fieldDate.setText(applicant.getApplicationDate().toString());
+        
+//        fieldDate.setText(applicant.getApplicationDate().toString());
+        fieldDate.setDate(applicant.getApplicationDate());
+        
         fieldPetName.setText(applicant.getPet().getName());
         fieldAge.setText("" + applicant.getPet().getAge());
         fieldGender.setText(applicant.getPet().isGender() ? "Male":"Female");
@@ -73,7 +76,6 @@ public class PetDetailsSearchPanel extends javax.swing.JPanel {
         fieldFirstName = new javax.swing.JTextField();
         fieldLastName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        fieldDate = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         vaccinationTable = new javax.swing.JTable();
@@ -90,6 +92,7 @@ public class PetDetailsSearchPanel extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
+        fieldDate = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(255, 153, 153));
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -115,13 +118,6 @@ public class PetDetailsSearchPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("LastName");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
-
-        fieldDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldDateActionPerformed(evt);
-            }
-        });
-        add(fieldDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 170, -1));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Date");
@@ -181,15 +177,12 @@ public class PetDetailsSearchPanel extends javax.swing.JPanel {
             }
         });
         add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, -1, -1));
+        add(fieldDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 170, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void fieldLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldLastNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldLastNameActionPerformed
-
-    private void fieldDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldDateActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
@@ -201,7 +194,7 @@ public class PetDetailsSearchPanel extends javax.swing.JPanel {
     private javax.swing.JButton backBtn;
     private javax.swing.JTextField fieldAge;
     private javax.swing.JTextField fieldBreed;
-    private javax.swing.JTextField fieldDate;
+    private com.toedter.calendar.JDateChooser fieldDate;
     private javax.swing.JTextField fieldFirstName;
     private javax.swing.JTextField fieldGender;
     private javax.swing.JTextField fieldLastName;
